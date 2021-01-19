@@ -1,11 +1,8 @@
-def inRange(x, y):
-    return 0 <= x and x < n and 0 <= y and y < m
-
-
 def zigzagNum(grid, n, m):
-    d_x, d_y = [1, 0, -1, 0], [0, 1, 0, 1]
+    d_x = [1, -1]
     curr_dir, num = 0, 0
     x, y = 0, 0
+
     while True:
         if num == n*m:
             break
@@ -13,13 +10,17 @@ def zigzagNum(grid, n, m):
         grid[x][y] = num
         num += 1
 
-        new_x, new_y = x + d_x[curr_dir], y + d_y[curr_dir]
-        if not inRange(new_x, new_y):
-            curr_dir += 1
-            new_x, new_y = x + d_x[curr_dir], y + d_y[curr_dir]
+        x += d_x[curr_dir]
 
-        x, y = new_x, new_y
-        print(grid)
+        if x >= n or x < 0:
+            x -= d_x[curr_dir]
+            if curr_dir == 0:
+                curr_dir = 1
+            else:
+                curr_dir = 0
+            y += 1
+            if y >= m or y < 0:
+                break
 
 
 n, m = input().split()

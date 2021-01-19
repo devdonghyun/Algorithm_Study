@@ -1,6 +1,5 @@
 def distanceFromOrigin(coor):
     coor.sort(key=lambda c: abs(0-c[0]) + abs(0-c[1]))
-
     for val in coor:
         print(val[2])
 
