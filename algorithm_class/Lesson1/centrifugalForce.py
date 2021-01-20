@@ -19,8 +19,6 @@ def centrifugalForce(grid, n):
         cnt_x += m_x[curr_dir]
         cnt_y += m_y[curr_dir]
 
-        print(cnt_x, cnt_y)
-        print(d_x, d_y)
         if cnt_x == d_x and cnt_y == d_y:
             cnt_x, cnt_y = 0, 0
             curr_dir += 1
@@ -39,8 +37,6 @@ def centrifugalForce(grid, n):
             else:
                 tmp_y = 0
             d_x, d_y = tmp_x, tmp_y
-
-        print(grid)
 
 
 n = int(input())
