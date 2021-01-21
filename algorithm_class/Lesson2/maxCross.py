@@ -31,7 +31,6 @@ def maxCross(n, grid, i, j):
             if tmp[j][i] != 0:
                 tmp2[tmp_row][i] = tmp[j][i]
                 tmp_row -= 1
-    print(tmp2)
     count = 0
     for row in range(n):
         for col in range(n):
