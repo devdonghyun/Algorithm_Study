@@ -16,13 +16,10 @@ graph = [
     for _ in range(n+1)
 ]
 visited = [0 for _ in range(n+1)]
-start_point = []
-end_point = []
+
 for _ in range(m):
     start, end = input().split()
     start, end = int(start), int(end)
-    start_point.append(start)
-    end_point.append(end)
     graph[start][end] = 1
     graph[end][start] = 1
 

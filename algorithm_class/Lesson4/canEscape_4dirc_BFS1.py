@@ -1,7 +1,5 @@
 from collections import deque
 
-q = deque()
-
 
 def inRange(x, y):
     return 0 <= x < n and 0 <= y < m
@@ -16,15 +14,21 @@ def canGo(x, y):
 
 
 def BFS():
+    global escape
     d_x, d_y = [-1, 1, 0, 0], [0, 0, -1, 1]
 
     while q:
-        curr_v = q.popleft()
+        x, y = q.popleft()
 
         for i in range(4):
             new_x = x + d_x[i]
             new_y = y + d_y[i]
             if canGo(new_x, new_y):
+                if new_x == n-1 and new_y == m-1:
+                    escape = 1
+                    return
+                q.append((new_x, new_y))
+                visited[new_x][new_y] = 1
 
 
 n, m = input().split()
@@ -33,5 +37,12 @@ grid = []
 for _ in range(n):
     row = [int(x) for x in input().split()]
     grid.append(row)
+visited = [
+    [0 for _ in range(m)]
+    for _ in range(n)
+]
+q = deque()
 escape = 0
-BFS(0, 0)
+q.append((0, 0))
+BFS()
+print(escape)
