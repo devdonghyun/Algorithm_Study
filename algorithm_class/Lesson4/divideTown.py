@@ -12,7 +12,7 @@ def inTown(x, y):
 
 def countCitizen(x, y):
     global count
-    d_x, d_y = [-1, 1, 0, 0], [0, 0, -1, 1]
+    d_x, d_y = [0, 1, 0, -1], [1, 0, -1, 0]
 
     for i in range(4):
         new_x = x + d_x[i]
@@ -36,14 +36,22 @@ visited = [
     for _ in range(n)
 ]
 citizenList = []
+count = 0
 for i in range(n):
     for j in range(n):
-        count = 0
-        count = countCitizen(i, j)
-        citizenList.append(count)
+        if inTown(i, j):
+            count = 1
+            visited[i][j] = 1
+            countCitizen(i, j)
+            citizenList.append(count)
 
 citizenList.sort()
+length = 0
 
+for citizen in citizenList:
+    if citizen != 0:
+        length += 1
+print(length)
 for citizen in citizenList:
     if citizen != 0:
         print(citizen)
