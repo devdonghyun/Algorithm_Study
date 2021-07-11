@@ -1,2 +1,2 @@
-# Algorithm_study
+# Algorithm_Study
  Solving Algorithm problems
