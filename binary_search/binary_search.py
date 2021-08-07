@@ -1,7 +1,7 @@
-# 이진 탐색 알고리즘 구현
+# 이진 탐색 알고리즘 구현 (재귀)
+#
 
 def binarySearch(t, s, e):
-
     if s > e:
         return None
 
